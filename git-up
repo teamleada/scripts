@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$CODE/admin/git/git-up.py "$@"
