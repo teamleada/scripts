@@ -8,5 +8,3 @@ def git(space_delimited_args):
 
 def git_commit(message):
     return git("commit -am " + message)
-
-git_commit("test")
