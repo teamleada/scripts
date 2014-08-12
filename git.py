@@ -4,8 +4,8 @@
 import subprocess
 
 def git(space_delimited_args, *args):
-    print "Running git %s" % space_delimited_args
     list_of_args = space_delimited_args.split() + list(args)
+    print "Running git %s" % " ".join(list_of_args)
     return subprocess.Popen(["git"]  + list_of_args)
 
 def git_commit(message):
