@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from git import *
+from hub import *
 
 ENGINEER_GITHUB_USERNAMES = [
     "negativetwelve",
@@ -18,8 +19,8 @@ def git_ci():
     commit_description_by_line = commit_description.split("\n")
     summary = commit_description_by_line[0]
 
-    git("checkout", "master")
-    git("merge --squash", initial_branch)
+#    git("checkout", "master")
+#    git("merge --squash", initial_branch)
 
     git_subtree_push("scripts", "scripts")
     git_subtree_push("primary", "app/assets/stylesheets/primary")
