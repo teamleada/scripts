@@ -3,6 +3,13 @@
 
 import subprocess
 
+def prompt_multiple_lines(message):
+    print prompt + " (press enter twice to terminate)\n"
+    lines = []
+    while lines[-2:] != ["", ""]:
+        lines.append(raw_input())
+    return "\n".join(lines).strip()
+
 def call(popenargs, input=None, requested_return=None, check_return_code=False, **kwargs):
     if "stdin" not in kwargs and input != None:
         kwargs["stdin"] = subprocess.PIPE
