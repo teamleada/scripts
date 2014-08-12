@@ -17,6 +17,6 @@ def git_up():
             git("merge", previous_branch)
         previous_branch = branch
 
-
 if __name__ == '__main__':
     git_up()
+
