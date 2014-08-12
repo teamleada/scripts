@@ -5,8 +5,7 @@ from git import *
 
 def git_up():
     git_fetch()
-    git_subtree_merge("scripts", "scripts")
-    git_subtree_merge("primary", "app/assets/stylesheets/primary")
+    git("pull -s subtree scripts master")
 
     branches = ["master"]
     previous_branch = None
