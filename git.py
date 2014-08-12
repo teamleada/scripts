@@ -33,7 +33,6 @@ def git_subtree_merge(subtree, prefix):
     git_subtree_push(subtree, prefix)
 
 def git_subtree_pull(subtree, prefix):
-    git("")
     git("subtree pull", "--prefix=%s" % prefix, "--squash", subtree, "master")
 
 def git_subtree_push(subtree, prefix):
