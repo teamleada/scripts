@@ -69,6 +69,8 @@ def git_up():
     git_subtree_pull("scripts", "scripts")
     git_subtree_pull("primary", "app/assets/stylesheets/primary")
 
+    initial_branch = current_branch()
+
     branches = ["master"]
     previous_branch = None
     for branch in branches:
@@ -77,4 +79,5 @@ def git_up():
         if previous_branch:
             git("merge", previous_branch)
         previous_branch = branch
+    git("checkout", initial_branch)
 
