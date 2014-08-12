@@ -11,7 +11,7 @@ def git_up():
     for branch in branches:
         git("checkout", branch)
         git("merge origin/%s" % branch)
-        if previous_branch
+        if previous_branch:
             git("merge", previous_branch)
         previous_branch = branch
 
