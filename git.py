@@ -17,9 +17,7 @@ def check_call_and_get_stdout_and_stderr(popenargs, **kwargs):
 
 def git(space_delimited_args, *args):
     list_of_args = space_delimited_args.split() + list(args)
-    print "*" * 50
     print "Running git %s" % " ".join(list_of_args)
-    print "*" * 50
     return check_call_and_get_stdout_and_stderr(["git"] + list_of_args)
 
 def git_commit(message):
