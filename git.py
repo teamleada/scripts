@@ -4,7 +4,7 @@
 import subprocess
 
 def prompt_multiple_lines(message):
-    print prompt + " (press enter twice to terminate)\n"
+    print message + " (press enter twice to terminate)\n"
     lines = []
     while lines[-2:] != ["", ""]:
         lines.append(raw_input())
