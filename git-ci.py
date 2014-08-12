@@ -12,6 +12,8 @@ ENGINEER_GITHUB_USERNAMES = [
 def git_ci():
     git_up()
 
+    initial_branch = current_branch()
+
     commit_description = prompt_multiple_lines("Enter a commit description. The frist line will be the summary.")
     commit_description_by_line = commit_description.split("\n")
     summary = commit_description_by_line[0]
