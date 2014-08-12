@@ -5,8 +5,8 @@ from git import *
 
 def git_ci():
     git_fetch()
-    git("pull -s subtree scripts master")
-    git("pull -s subtree primary master")
+    git_subtree_push("scripts", "scripts")
+    git_subtree_push("primary", "app/assets/stylesheets/primary/")
 
     branches = ["master"]
     previous_branch = None
