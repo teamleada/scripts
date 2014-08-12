@@ -6,6 +6,7 @@ from git import *
 def git_up():
     git_fetch()
     git("pull -s subtree scripts master")
+    git("pull -s subtree primary master")
 
     branches = ["master"]
     previous_branch = None
