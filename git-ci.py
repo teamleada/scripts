@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from git import *
-from git-up import git_up
 
 ENGINEER_GITHUB_USERNAMES = [
     "negativetwelve",

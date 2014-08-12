@@ -3,20 +3,6 @@
 
 from git import *
 
-def git_up():
-    git_fetch()
-    git_subtree_pull("scripts", "scripts")
-    git_subtree_pull("primary", "app/assets/stylesheets/primary")
-
-    branches = ["master"]
-    previous_branch = None
-    for branch in branches:
-        git("checkout", branch)
-        git("merge origin/%s" % branch)
-        if previous_branch:
-            git("merge", previous_branch)
-        previous_branch = branch
-
 if __name__ == '__main__':
     git_up()
 
