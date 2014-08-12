@@ -7,6 +7,12 @@ def call(popenargs, input=None, requested_return=None, check_return_code=False, 
     p = subprocess.Popen(popenargs, **kwargs)
     stdout, stderr = p.communicate(input)
     output = p.returncode
+    if requested_return == "stdout":
+        output = stdout
+    elif requested_return == "stderr":
+        output = stderr
+    elif requested_return == "code":
+        output = p.returncode
     return output
 
 def check_call(popenargs, input=None, requested_return="", **kwargs):
