@@ -7,6 +7,7 @@ def git(space_delimited_args, *args):
     list_of_args = space_delimited_args.split() + list(args)
     print "*" * 50
     print "Running git %s" % " ".join(list_of_args)
+    print list_of_args
     print "*" * 50
     return subprocess.Popen(["git"]  + list_of_args)
 
