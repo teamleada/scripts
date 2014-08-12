@@ -29,7 +29,9 @@ def git_ci():
     # We then want to push your branch to origin HEAD
     # Open a pull request with your summary and close any issues.
     # Dump you back on master with all the updated changes.
-    git("push origin HEAD")
+    git("push -u origin HEAD")
+    pull_request(commit_description)
+    git("checkout master")
 
 if __name__ == '__main__':
     git_ci()
