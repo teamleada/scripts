@@ -13,7 +13,7 @@ def check_call(popenargs, input=None, requested_return="", **kwargs):
     return call(popenargs, input=input, requested_return=requested_return, check_return_code=True, **kwargs)
 
 def check_call_and_get_stdout_and_stderr(popenargs, **kwargs):
-    return check_call(popen_args, requested_return="stdout", stderr=subprocess.STDOUT, **kwargs)
+    return check_call(popenargs, requested_return="stdout", stderr=subprocess.STDOUT, **kwargs)
 
 def git(space_delimited_args, *args):
     list_of_args = space_delimited_args.split() + list(args)
