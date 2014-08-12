@@ -4,6 +4,14 @@
 import subprocess
 
 def call(popenargs, input=None, requested_return=None, check_return_code=False, **kwargs):
+    if "stdin" not in kwargs and input != None:
+        kwargs["stdin"] = subprocess.PIPE
+
+    if "stdout" not in kwargs and requested_return == "stdout":
+        kwargs["stdout"] = subprocess.PIPE
+    elif "stderr" not in kwargs and requested_return == "stderr":
+        kwargs["stderr"] = subprocess.PIPE
+
     p = subprocess.Popen(popenargs, **kwargs)
     stdout, stderr = p.communicate(input)
     output = p.returncode
@@ -28,8 +36,8 @@ def git(space_delimited_args, *args):
 
 def current_branch():
     for branch in git("branch").split("\n"):
-        if line.startswith("*"):
-            return line[2:]
+        if branch.startswith("*"):
+            return branch[2:]
     raise RuntimeError("No current branch")
 
 def git_commit(message):
@@ -43,7 +51,7 @@ def git_subtree_merge(subtree, prefix):
     git_subtree_push(subtree, prefix)
 
 def git_subtree_pull(subtree, prefix):
-    default_pull_message = "[%s subtree] Merging %s into %s" % (subtree, subtree, current_branch())
+    default_pull_message = "'[%s subtree] Merging %s into %s'" % (subtree, subtree, current_branch())
     git("subtree pull", "--prefix=%s" % prefix, "--squash", "-m", default_pull_message, subtree, "master")
 
 def git_subtree_push(subtree, prefix):
