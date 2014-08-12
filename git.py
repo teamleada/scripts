@@ -37,7 +37,8 @@ def git_subtree_merge(subtree, prefix):
     git_subtree_push(subtree, prefix)
 
 def git_subtree_pull(subtree, prefix):
-    git("subtree pull", "--prefix=%s" % prefix, "--squash", "--no-commit", subtree, "master")
+    default_pull_message = "[%s subtree] Merging %s into %s" % (subtree, subtree, current_branch())
+    git("subtree pull", "--prefix=%s" % prefix, "--squash", "-m", default_pull_message, subtree, "master")
 
 def git_subtree_push(subtree, prefix):
     git("subtree push", "--prefix=%s" % prefix, subtree, "master")
