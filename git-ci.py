@@ -24,6 +24,10 @@ def git_ci():
     git_subtree_push("scripts", "scripts")
     git_subtree_push("primary", "app/assets/stylesheets/primary")
 
+    # Git up will merge in master and any subtree changes
+    # We then want to push your branch to origin HEAD
+    # Open a pull request with your summary and close any issues.
+    # Dump you back on master with all the updated changes.
     git("push origin HEAD")
 
 if __name__ == '__main__':
