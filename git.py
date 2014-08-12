@@ -20,6 +20,12 @@ def git(space_delimited_args, *args):
     print "Running git %s" % " ".join(list_of_args)
     return check_call_and_get_stdout_and_stderr(["git"] + list_of_args)
 
+def current_branch():
+    for branch in git("branch").split("\n"):
+        if line.startswith("*"):
+            return line[2:]
+    raise RuntimeError("No current branch")
+
 def git_commit(message):
     return git("commit -am " + message)
 
