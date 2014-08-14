@@ -1,6 +1,6 @@
 # Configuration file for Leada
 
-export LEADA=~/dropbox/projects/leada/teamleada.com
+export LEADA=`pwd`
 
 PATH=$PATH:$LEADA/scripts
 

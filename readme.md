@@ -1,5 +1,11 @@
 # Scripts
 
+### Set Up
+
+Add the following line your `.bashrc` or `.zshrc`:
+
+    source ~/<path to teamleada.com repo>/scripts/.leada.profile
+
 ### Git
 
 New commands:
