@@ -64,6 +64,10 @@ def git_subtree_pull(subtree, prefix):
 def git_subtree_push(subtree, prefix):
     git("subtree push", "--prefix=%s" % prefix, subtree, "master")
 
+def git_pa():
+    git_subtree_push("scripts", "scripts")
+    git_subtree_push("primary", "app/assets/stylesheets/primary")
+
 def git_up():
     git_fetch()
     git_subtree_pull("scripts", "scripts")
